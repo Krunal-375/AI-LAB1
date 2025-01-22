@@ -1,10 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Result vector to store DFS traversal order
 vector<int> res;
 
-// Function for DFS traversal
 void dfs(int node, vector<int>& visited, vector<int> adj[]) {
     visited[node] = 1;
     res.push_back(node);
@@ -21,7 +19,6 @@ int main() {
     cin >> n >> m;
     vector<int> adj[n + 1];
 
-    // Input for edges
     for (int i = 0; i < m; i++) {
         int u, v;
         cin >> u >> v;
@@ -29,13 +26,10 @@ int main() {
         adj[v].push_back(u);
     }
 
-    // Vector to mark visited nodes
     vector<int> visited(n + 1, 0);
 
-    // Perform DFS starting from node 1
     dfs(1, visited, adj);
 
-    // Print DFS result
     cout << "DFS Traversal: ";
     for (auto &i : res) {
         cout << i << " ";
